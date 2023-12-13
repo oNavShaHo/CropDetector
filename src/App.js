@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { createRoot } from "react-dom/client";
+import {
+  createBrowserRouter,
+  RouterProvider,
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+} from "react-router-dom";
+
+import Form from "./components/form";
+import Home from "./screens/Home";
+
+import './App.css'
+export default function App() {
+  
+const root = createRoot(document.getElementById('root'))
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: (
+        <Home/>
+      ),
+    },
+    {
+      path: "detect",
+      element: <Form/>,
+    },
+  ]); 
+
+  root.render(
+    
+      <RouterProvider router={router} />
   );
 }
-
-export default App;

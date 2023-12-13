@@ -6,13 +6,15 @@ High Level Diagram
 
 system design
 
-![system design](https://github.com/oNavShaHo/CropDetector/assets/106837111/785e6558-d203-42fc-97a0-1d1d8e535f17)
+
+![system design](https://github.com/oNavShaHo/CropDetector/assets/106837111/e0365e8f-4557-4215-beb3-0baf3152f005)
 
 
 
 Architecture Used (Tier 2)
 
-![tier 2](https://github.com/oNavShaHo/CropDetector/assets/106837111/bba2d000-63fe-463d-8d07-1a9d61c47c64)
+![tier 2](https://github.com/oNavShaHo/CropDetector/assets/106837111/aca9c6b1-bea1-4958-9f5a-1aea4117ffc4)
+
 
 
 

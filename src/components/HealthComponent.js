@@ -3,53 +3,33 @@
 
 import React from 'react';
 
-const HealthComponent = ({ healthData }) => {
+const HealthComponent = (props) => {
+
+  console.log("hahap",props);
+  let healthData=props.healthData;
   if (!healthData) {
     return <div>Error: Data not found.</div>;
   }
-
+  
   return (
-    <div className="health-component">
-      {Object.keys(healthData).map((key) => {
-        const data = healthData[key];
-        return (
-          <div key={key}>
-            <h2 className='component-heading'>{key}</h2>
-            <p className="description">{data.description}</p>
-            <p className="result" >Result: {data.result}</p>
-            {data.effects && (
-              <div className="effects">
-                <h3 className="sub-heading">Effects:</h3>
-                <p>{data.effects}</p>
-              </div>
-            )}
-            {data.causes && (
-              <div className="causes">
-                <h3 className="sub-heading">Causes:</h3>
-                <ul className="list">
-                  {data.causes.map((cause, index) => (
-                    <li key={index}>{cause}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {data.preventions && (
-              <div className="preventions">
-                <h3 className="sub-heading">Preventions:</h3>
-                <ul className="list">
-                  {data.preventions.map((prevention, index) => (
-                    <li key={index}>{prevention}</li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            <hr className='mt-5 border-black'/>
-          </div>
-          
-        );
-      })}
+   
+    <div className="border-red-200 border w-[80vw] p-10 flex justify-between bg-green-100 text-green-800">
+      <div>
+      <h1>Disease:<span className='font-bold'>{healthData.result.name}</span></h1>
+      <p className='font-semibold'>Cure</p>
+      <ul className='list-inside list-disc'>
+      {
+        healthData.result.preventionSteps.map((e)=>(
+          <li>{e}</li>
+        ))
+      }
+      </ul>
     </div>
-  );
+    <div>
+    {/* <img src={props.img} alt={props.img.name} /> */}
+    </div>
+    </div>
+   );
 };
 
 export default HealthComponent;

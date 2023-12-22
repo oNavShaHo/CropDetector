@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import Navbar from './navbar';
-
+import axios from 'axios';
 import Ans from './Ans';
 
 
@@ -10,10 +10,28 @@ export default function Form() {
   console.log(setDD);
   const [selectedImage, setSelectedImage] = useState(null);
 
+   
+   function fetchh()
+  {
+      
+    axios.post('http://localhost:3000/img', {
+       'im':selectedImage,
+      
+    })
+    .then(function (response) {
+      console.log("response:",response);
+    //   setDD(response.data);
+     })
+    .catch(function (error) {
+      console.log(error);
+    });
+     
+  
+  }
 
-
+var file=null;
   const handleImageChange = (e) => {
-    const file = e.target.files[0];
+     file = e.target.files[0];
     if (file) {
       // You can perform additional validation here if needed
       setSelectedImage(file);
@@ -25,7 +43,10 @@ export default function Form() {
     // Handle the image submission logic here, for example, sending it to a server or processing it.
     if (selectedImage) {
       console.log('Selected Image:', selectedImage);
-      // Perform the necessary actions with the image, such as uploading to a server or processing it.
+        
+        fetchh();
+      
+
     } else {
       console.log('No image selected');
     }
@@ -52,7 +73,7 @@ export default function Form() {
       </div>
       <button className='bg-[#023F3A]  text-white' type="submit">Submit</button>
     </form>):(
-      <Ans dataa={dd}/>
+      <Ans dataa={dd} img={file}/>
     )}
      
      </div>

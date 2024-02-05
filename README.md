@@ -1,4 +1,6 @@
+(under development) - https://astonishing-profiterole-9c2520.netlify.app/
 a crop disease detection website
+
 
 -System Design and Architecture
 
